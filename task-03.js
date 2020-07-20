@@ -13,5 +13,3 @@ if (password === null) {
 }
 
 alert(message);
-
-console.log(message);
