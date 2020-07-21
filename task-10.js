@@ -30,15 +30,60 @@
 //   console.log(MAX);
 // };
 
-const maxNum = function () {
-  // Variant1
-  //    console.log(Math.max(...arguments))
-  // Variant2
-  // let maxNum = 0;
-  //  for(let el of [...arguments]) {
-  //  el > maxNum ? maxNum = el : '';
-  //  }
-  //  console.log(maxNum)
+// const maxNum = function () {
+// Variant1
+//    console.log(Math.max(...arguments))
+// Variant2
+// let maxNum = 0;
+//  for(let el of [...arguments]) {
+//  el > maxNum ? maxNum = el : '';
+//  }
+//  console.log(maxNum)
+// };
+
+// max = (1, 2, 3, 4, 5, 6, 7, 8);
+
+// 1) Function declaration => expression
+// 2) If => тернарником
+// 3) В вызове сделать стрелочные функции
+
+// function ask(question, yes, no) {
+//   if (confirm(question)) yes();
+//   else no();
+// }
+// ____________________________________
+
+// const ask = function (question, yes, no) {
+//   confirm(question) === true ? yes() : no();
+// };
+// ask(
+//   'Вы согласны?',
+//   () => alert('Вы согласились.'),
+//   () => alert('Вы отменили выполнение.'),
+// );
+
+// ask('Вы согласны?'
+//   () => alert('Вы согласились.');
+// () => alert('Вы отменили выполнение.'));
+
+//___________________________________
+
+// Напишите функцию hello(), которая при вызове будет принимать переменную name(например, «Василий») и
+// выводить строку(в нашем случае «Привет, Василий»).В случае отсутствующего аргумента выводить «Привет, гость»
+
+// const hello = function (name = 'Гость') {
+//   console.log(`Привет ${name}`);
+// };
+
+// hello('Василий');
+
+//___________________________________
+// #3
+// Создайте функцию repeat(str, n), которая возвращает строку, состоящую из
+//  n повторений строки str. n — по умолчанию 2, str — пустая строка
+
+const repeat = function (str = '', n = 2) {
+  console.log(str.repeat(n));
 };
 
-max = (1, 2, 3, 4, 5, 6, 7, 8);
+repeat('123', 3);
