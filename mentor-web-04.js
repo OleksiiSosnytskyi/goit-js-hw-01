@@ -1,16 +1,28 @@
-let credits = 23580;
-const pricePerDroid = 3000;
-let quantity = prompt('сколько дроидов вы хотите купить?');
+// Напишите ф-цию, которая примает аргументами 2 числа,  задающих диапазон который нужно вывести в консоль
+// если в числе есть 3 - в консоль вместо него выводиться "three"
+// (то есть вместо 3, 13, 23 и т.д. должно быть "three")
+//
+//
+// ---------------------------------------------
+//
 
-let totalPrice = Number(quantity) * pricePerDroid;
+// const onChange = function () {
+//   let total = 0;
 
-if (quantity === null) {
-  console.log('Отменено пользователем!');
-} else if (totalPrice > credits) {
-  console.log('Недостаточно средств на счету!');
-} else {
-  let creditsBalance = credits - totalPrice;
-  console.log(
-    `Вы купили ${quantity} дроидов, на счету осталось ${creditsBalance} кредитов.`,
-  );
-}
+//   const onIncrement = function () {
+//     total += 1;
+//     console.log(total);
+//   };
+
+//   const onDecrement = function () {
+//     total -= 1;
+//     console.log(total);
+//   };
+//   const mull = function () {
+//     total *= 2
+//     console.log(total)
+//   }
+//   return { onIncrement, onDecrement, mull };
+// };
+// let counter = onChange();
+// let counter2 = onChange();
