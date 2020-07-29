@@ -536,3 +536,269 @@
 //   }
 // }
 // ----------------------------------------------------------------------------------------------
+//
+// Напиши класс Car с указанными свойствами и методами.
+
+// class Car {
+//   /*
+//    * Добавь статический метод `getSpecs(car)`,
+//    * который принимает объект-машину как параметр и выводит
+//    * в консоль значения свойств maxSpeed, speed, isOn, distance и price.
+//    */
+
+//   static getSpecs(car) {
+//     console.log(
+//       `maxSpeed: ${car.maxSpeed}, speed: ${car.speed}, isOn: ${car.isOn}, distance: ${car.distance}, price: ${car.price}`,
+//     );
+//   }
+//   /*
+//    * Конструктор получает объект настроек.
+//    *
+//    * Добавь свойства будущеего экземпляра класса:
+//    *  speed - текущая скорость, изначально 0
+//    *  price - цена автомобиля
+//    *  maxSpeed - максимальная скорость
+//    *  isOn - заведен ли автомобиль, значения true или false. Изначально false
+//    *  distance - общий киллометраж, изначально 0
+//    */
+//   constructor({ maxSpeed, price }) {
+//     this.speed = 0;
+//     this.maxSpeed = maxSpeed;
+//     this._price = price;
+//     this.isOn = false;
+//     this.distance = 0;
+//   }
+
+//   /*
+//    * Добавь геттер и сеттер для свойства price,
+//    * который будет работать с свойством цены автомобиля.
+//    */
+
+//   get price() {
+//     return this._price;
+//   }
+//   set price(newPrice) {
+//     this._price = newPrice;
+//   }
+
+//   /*
+//    * Добавь код для того чтобы завести автомобиль
+//    * Записывает в свойство isOn значение true
+//    */
+//   turnOn() {
+//     this.isOn = true;
+//   }
+
+//   /*
+//    * Добавь код для того чтобы заглушить автомобиль
+//    * Записывает в свойство isOn значение false,
+//    * и сбрасывает текущую скорость в 0
+//    */
+//   turnOff() {
+//     this.isOn = false;
+//     this.speed = 0;
+//   }
+
+//   /*
+//    * Добавялет к свойству speed полученное значение,
+//    * при условии что результирующая скорость
+//    * не больше чем значение свойства maxSpeed
+//    */
+//   accelerate(value) {
+//     if (this.speed + value <= this.maxSpeed) {
+//       this.speed = this.speed + value;
+//     }
+//   }
+
+//   /*
+//    * Отнимает от свойства speed полученное значение,
+//    * при условии что результирующая скорость не меньше нуля
+//    */
+//   decelerate(value) {
+//     if (this.speed - value >= 0) {
+//       this.speed = this.speed - value;
+//     }
+//   }
+
+//   /*
+//    * Добавляет в поле distance киллометраж (hours * speed),
+//    * но только в том случае если машина заведена!
+//    */
+//   drive(hours) {
+//     if (this.isOn === true) {
+//       this.distance += hours * this.speed;
+//     }
+//   }
+// }
+
+// const mustang = new Car({ maxSpeed: 200, price: 2000 });
+
+// mustang.turnOn();
+// mustang.accelerate(50);
+// mustang.drive(2);
+
+// Car.getSpecs(mustang);
+// // maxSpeed: 200, speed: 50, isOn: true, distance: 100, price: 2000
+
+// mustang.decelerate(20);
+// mustang.drive(1);
+// mustang.turnOff();
+
+// Car.getSpecs(mustang);
+// // maxSpeed: 200, speed: 0, isOn: false, distance: 130, price: 2000
+
+// console.log(mustang.price); // 2000
+// mustang.price = 4000;
+// console.log(mustang.price); // 4000
+
+//
+// ------------------ 29 июля работа с классами с Валерой --------------
+//
+// --------------- CОЗДАНИЕ СУЩЕСТВ ---------------
+//
+// let creaturesArr = [];
+// class Creature {
+//   constructor(type, planet, status, sex) {
+//     this.type = type;
+//     this.planet = planet;
+//     this.status = status;
+//     this.sex = sex;
+//   }
+//   get show() {
+//     return `This ${this.type} is from ${this.planet} and has ${this.status} status`;
+//   }
+//   set changePlanet(str) {
+//     this.planet = str;
+//     return this.planet;
+//   }
+//   static intro() {
+//     console.log('There is a billions types of creatures all around the world!');
+//   }
+//   static checkCreatures() {
+//     console.log(creaturesArr);
+//   }
+// }
+// class Human extends Creature {
+//   constructor(name, type, planet, status, sex, nationality) {
+//     super(type, planet, status, sex);
+//     this.name = name;
+//     this.nationality = nationality;
+//   }
+//   addToCreaturesList() {
+//     creaturesArr.push({
+//       name: this.name,
+//       planet: this.planet,
+//       nationlity: this.nationality,
+//     });
+//   }
+// }
+// let Adam = new Human(
+//   'Adam',
+//   'human',
+//   'Mars',
+//   'three-dimensional',
+//   'male',
+//   'Ukrainian',
+// );
+// Adam.addToCreaturesList();
+// let Eva = new Human(
+//   'Eva',
+//   'human',
+//   'Venus',
+//   'three-dimensional',
+//   'female',
+//   'Ukrainian',
+// );
+// Eva.addToCreaturesList();
+// Creature.checkCreatures();
+
+// class Droid extends Creature {
+//   constructor(model, type, planet, status, isEvil, solarPower) {
+//     super(type, planet, status);
+//     this.model = model;
+//     this.isEvil = isEvil;
+//     this.solarPower = solarPower;
+//   }
+//   addToCreaturesList() {
+//     creaturesArr.push({
+//       name: this.model,
+//       planet: this.planet,
+//       isEvil: this.isEvil,
+//     });
+//   }
+//   set changeIsEvil(value) {
+//     this.isEvil = value;
+//     return this.isEvil;
+//   }
+// }
+// let r2d2 = new Droid(
+//   'R2-D2',
+//   'droid',
+//   'Naboo',
+//   'two-dimensional',
+//   'false',
+//   'false',
+// );
+
+// let c3po = new Droid(
+//   'C-3PO',
+//   'droid',
+//   'Tatooin',
+//   'two-dimensional',
+//   'true',
+//   'true',
+// );
+
+// c3po.changeIsEvil = false;
+// r2d2.addToCreaturesList();
+// c3po.addToCreaturesList();
+// Creature.checkCreatures();
+//
+//
+// ------------------  ЗАДАЧА ПРО СТУДЕНТОВ ---------------
+//
+//
+// Реализуйте класс Student (Студент), который будет наследовать от класса User.
+// Этот класс должен иметь следующие свойства:
+//  name (имя, наследуется от User), surname (фамилия, наследуется от User),
+//  year (год поступления в вуз).
+//  Класс должен иметь метод getFullName() (наследуется от User),
+// с помощью которого можно вывести одновременно имя и фамилию студента.
+// Также класс должен иметь метод getCourse(), который будет выводить текущий курс студента (от 1 до 5).
+// Курс вычисляется так: нужно от текущего года отнять год поступления в вуз. Текущий год получите самостоятельно.
+// Вот так должен выглядеть класс User, от которого наследуется наш Student:
+class User {
+  constructor(name, surname) {
+    this.name = name;
+    this.surname = surname;
+    this.fullName;
+    this.course;
+  }
+  getFullName() {
+    return (this.fullName = this.name + ' ' + this.surname);
+  }
+}
+
+class Student extends User {
+  constructor(name, surname, year) {
+    super(name, surname);
+    this.year = year;
+  }
+  getFullName() {
+    return (this.fullName = this.name + ' ' + this.surname);
+  }
+
+  getCourse() {
+    return (this.course = new Date().getFullYear() - this.year);
+  }
+}
+
+// Вот так должен работать наш класс:
+let student = new Student('Иван', 'Иванов', 2017);
+console.log(student);
+console.log(student.name); //выведет 'Иван'
+console.log(student.surname); //выведет 'Иванов'
+console.log(student.getFullName()); //выведет 'Иван Иванов'
+console.log(student.year); //выведет 2017
+// console.log(student.getCourse()); //выведет 3 - третий курс, так как текущий год 2020
+console.log(student.getCourse(2020));
